@@ -5,3 +5,7 @@ No comprehensive documentation available yet. Please contact me if you need info
 Data paths are specified in __helper_init.py
 
 The other scripts have to be executed in the order indicated by the beginning of the script name.
+
+## Installation
+
+Download the repository and install all packages listed in requirements.txt
