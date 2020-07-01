@@ -15,6 +15,7 @@ from string import ascii_lowercase
 import seaborn as sns
 import numpy
 import numpy as np
+#from matplotlib import rc
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -25,6 +26,7 @@ import matplotlib.ticker as mticker
 import matplotlib as mpl
 from matplotlib import colors
 setColorMap = matplotlib.colors.ListedColormap(['#03a17b','yellow',"r", "b", 'm', 'orange', 'c', 'darkmagenta', 'yellow','k'])
+#rc('text', usetex=True)
 
 # from pyPdf import PdfFileWriter, PdfFileReader
 # from fpdf import FPDF
@@ -91,24 +93,24 @@ import statsmodels.api as sm
 #=====================================================================================
 
 try:
-	os.chdir('/Users/peterpfleiderer/Projects/')
-	base_path = '/Users/peterpfleiderer/Projects/'
+	os.chdir('/Users/peterpfleiderer/Projects/tropical_cyclones/')
+	base_path = '/Users/peterpfleiderer/Projects/tropical_cyclones/'
 	data_path = '/Users/peterpfleiderer/Projects/data/'
-	tmp_path = '/Users/peterpfleiderer/Projects/'
+	tmp_path = '/Users/peterpfleiderer/Projects/tropical_cyclones/'
 	sys.path.append(base_path+'git-packages/tigramite')
 except:
 	os.chdir('/home/pepflei')
-	base_path = '/home/pepflei/'
+	base_path = '/home/pepflei/Projects/'
 	data_path = '/p/projects/tumble/carls/shared_folder/data/'
 	tmp_path = '/p/tmp/pepflei/'
 	sys.path.append('/p/projects/tumble/carls/shared_folder/git-packages/tigramite')
 
 #import tigramite
-from tigramite import data_processing as pp
-from tigramite import plotting as tp
-from tigramite.pcmci import PCMCI
-from tigramite.models import LinearMediation, Prediction
-from tigramite.independence_tests import ParCorr, GPDC, CMIknn, CMIsymb
+# from tigramite import data_processing as pp
+# from tigramite import plotting as tp
+# from tigramite.pcmci import PCMCI
+# from tigramite.models import LinearMediation, Prediction
+# from tigramite.independence_tests import ParCorr, GPDC, CMIknn, CMIsymb
 
 index_name = "ACE"
 index_longname = "$ACE_{JASO}$"
@@ -304,7 +306,7 @@ def plot_ROC(obs,pred,ax,title='', n_boot=1000):
 	#ax.set_title(title)
 	legend_elements=[]
 	roc_summary = {}
-	for lvl,thresh,label,color,lsty in zip([33,50,66],list(np.nanpercentile(obs,[33,50,66])),['$>33^{rd} perc.$','$>median$','$>66^{th} perc.$'],['darkcyan','blue','darkgreen'],['--','-','--']):
+	for lvl,thresh,label,color,lsty in zip([33,50,66],list(np.nanpercentile(obs,[33,50,66])),['$>33^{rd} perc.$','$>median$','$>66^{th} perc.$'],['#1f8c3c','blue','#9842f5'],[':','-','--']):
 
 		tmp_roc = get_roc(obs,pred,thresh)
 		ax.plot(tmp_roc['fpr'],tmp_roc['tpr'], color=color, linestyle=lsty)
