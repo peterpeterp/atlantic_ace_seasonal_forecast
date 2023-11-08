@@ -70,7 +70,6 @@ parso=0.6.1=py_0
 patsy=0.5.1=py37_0
 pexpect=4.8.0=py37_0
 pickleshare=0.7.5=py37_0
-pillow=7.0.0=py37h4655f20_0
 pip=20.0.2=py37_1
 proj4=5.2.0=h0a44026_1
 prompt_toolkit=3.0.3=py_0
